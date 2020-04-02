@@ -8,7 +8,6 @@ const IndexScreen = ({ navigation }) => {
 
   return (
     <View>
-      <Button title="Add Post" onPress={addBlogPost} />
       <FlatList 
         data={state}
         keyExtractor={(blogPost) => blogPost.title}
@@ -27,6 +26,18 @@ const IndexScreen = ({ navigation }) => {
       />
     </View>
   );
+};
+
+// whenever index screen is about to be displayed by react navigation, 
+// react navigation will call this function and inspect the object we return
+IndexScreen.navigationOptions = ({ navigation }) => {
+  return {
+    headerRight: (
+      <TouchableOpacity onPress={() => navigation.navigate('Create')}>
+        <Feather name="plus" size={30} />
+      </TouchableOpacity>
+    )
+  };
 };
 
 const styles = StyleSheet.create({
