@@ -57,6 +57,11 @@ const editBlogPost = (dispatch) => {
   };
 };
 
+// this createDataContext function made it a lot easier to set up different types of resources 
+// if we ever want to have some other kind of resource in our app
+// this function gives us back our Context object and our Provider
+// Provider is used inside the App.js file
+// Context object will be used inside of any component
 export const { Context, Provider } = createDataContext(
   blogReducer, 
   { getBlogPosts, addBlogPost, deleteBlogPost, editBlogPost }, 

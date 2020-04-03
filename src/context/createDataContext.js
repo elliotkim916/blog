@@ -12,6 +12,8 @@ export default (reducer, actions, initialState) => {
       boundActions[key] = actions[key](dispatch);
     }
 
+    // Provider is a generic component, would manage state through useReducer hook
+    // We made that state and methods to modify the state accessible to child components
     return (
       <Context.Provider value={{ state, ...boundActions }}>
         {children}
